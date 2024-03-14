@@ -30,7 +30,7 @@ service nginx start
 sed -i -- 's/nginx/Google Cloud Platform - '"\$HOSTNAME"'/' /var/www/html/index.nginx-debian.html
 EOF
 
-gcloud compute instance-templates create web-server-template --region $REGION --metadata-from-file startup-script=startup.sh --machine-type e2-micro
+gcloud compute instance-templates create web-server-template --region $REGION --metadata-from-file startup-script=startup.sh --machine-type e2-medium
 
 gcloud compute target-pools create nginx-pool --region=$REGION
 
